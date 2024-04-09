@@ -9,13 +9,13 @@ import { Toaster } from 'sonner';
 export const useAuth = () => {
     const [cookies, removeCookie] = useCookies();
 
-    if (cookies.userToken.length>0) {
-        return true;
+    if (cookies.userToken && cookies.userToken.length > 0 && cookies.userToken!=undefined) {
+        console.log(cookies.userToken);
+        return true; 
     } else {
-        return false
+        return false; 
     }
 };
-
 const Home = () => {
     const navigate = useNavigate();
     const [cookies, removeCookie] = useCookies([]);
